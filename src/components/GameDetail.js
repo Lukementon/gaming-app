@@ -73,6 +73,9 @@ const GameDetail = () => {
           <Detail>
             <Stats>
               <div className="rating">
+                <button onClick={exitDetailHandler} className="exit shadow">
+                  X
+                </button>
                 <h3 style={{ color: "black" }}> {game.name}</h3>
                 <p style={{ color: "black" }}>Rating: {game.rating}</p>
                 {getStars()}
@@ -171,12 +174,33 @@ const Stats = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .exit {
+    display: none;
+  }
+
+  @media (max-width: 1000px) {
+    .exit {
+      display: block;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      align-self: flex-end;
+      right: 0;
+    }
   }
 
   img {
